@@ -1,0 +1,32 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+    db:
+        image: postgres
+        restart: always
+        env_file:
+            - .env.development.db
+        volumes:
+            - ./initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+            - postgres_data:/var/lib/mysql
+        ports:
+            - "5432:5432"
+    backend:
+        build:
+            context: ./backend-node
+            dockerfile: Dockerfile
+        image: morpher/backend-node
+        restart: always
+        volumes:
+            - ./backend-node:/usr/src/app
+            - /usr/src/app/node_modules
+        ports:
+            - "8080:80"
+        command: "npx nodemon --legacy-watch --exec ts-node ./src/index.ts"
+        env_file:
+            - .env.development.backend
+            - .env.aws.backend
+volumes:
+    postgres_data:
+        driver: local

@@ -15,20 +15,21 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - cp .env.aws.backend.example .env.aws.backend
-      - docker-compose up --build -d
+      - docker-compose up -f docker-compose.testing.yml --build -d
   post_build:
     commands:
       - docker exec src_backend_1 npm run test
-      - docker exec src_vue_1 apt-get update
-      - docker exec src_vue_1 apt-get install curl -y
-      - docker exec src_vue_1 apt-get install netcat -y
-#      - docker exec src_vue_1 apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
-#      - docker exec src_vue_1 cp cypress.test.json cypress.json
-#      - docker exec src_vue_1 npx cypress run --headless
-#      - docker exec src_vue_1 nc -vz http://backend 80
-#      - docker exec src_vue_1 nc -vz http://db 5432
-      - ipAddress=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' backend)
-      - echo $ipAddress
+      - backendIp=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' src_backend_1)
+      - apt-get update
+      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - apt-get install jq -y
+      - apt-get install nodejs -y
+      - cd vue
+      - npm install
+      - echo "$( jq '.env.backendUrl = $backendIp' cypress.json )" > cypress.json
+      - echo "VUE_APP_BACKEND_ENDPOINT=$backendIp" > .env
+      - npm run serve
+      - npx cypress run --headless
       - echo Build completed on `date`
 artifacts:
     files:
