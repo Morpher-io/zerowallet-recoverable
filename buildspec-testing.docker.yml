@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    VUE_APP_BACKEND_ENDPOINT: 'http://backend'
+    VUE_APP_BACKEND_ENDPOINT: 'http://172.19.0.3'
 
 phases:
   pre_build:
@@ -15,7 +15,7 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - cp .env.aws.backend.example .env.aws.backend
-      - docker-compose -f docker-compose.testing.yml up --build -d
+      - docker-compose -f docker-compose.yml up --build -d
   post_build:
     commands:
       - docker exec src_backend_1 npm run test
