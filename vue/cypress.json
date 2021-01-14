@@ -6,6 +6,6 @@
   "env": {
     "firstEmail": "test@email.com",
     "secondEmail": "test2@email.com",
-    "backendUrl": "http://localhost:8080"
+    "backendUrl": "http://172.19.0.3"
   }
 }
