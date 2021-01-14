@@ -15,12 +15,13 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - cp .env.aws.backend.example .env.aws.backend
-      - docker-compose up -f docker-compose.testing.yml --build -d
+      - docker-compose -f docker-compose.testing.yml up --build -d
   post_build:
     commands:
       - docker exec src_backend_1 npm run test
       - backendIp=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' src_backend_1)
       - apt-get update
+      - apt-get install curl -y
       - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
       - apt-get install jq -y
       - apt-get install nodejs -y
