@@ -22,15 +22,16 @@ phases:
       - backendIp=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' src_backend_1)
       - apt-get update
       - apt-get install curl -y
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      - apt-get install jq -y
-      - apt-get install nodejs -y
-      - cd vue
-      - npm install
-      - echo "$( jq '.env.backendUrl = $backendIp' cypress.json )" > cypress.json
-      - echo "VUE_APP_BACKEND_ENDPOINT=$backendIp" > .env
-      - npm run serve
-      - npx cypress run --headless
+      - curl $backendIp
+#      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+#      - apt-get install jq -y
+#      - apt-get install nodejs -y
+#      - cd vue
+#      - npm install
+#      - docker exec src_vue_1 echo "$( jq '.env.backendUrl = $backendIp' cypress.json )" > cypress.json
+#      - docker exec src_vue_1 echo "VUE_APP_BACKEND_ENDPOINT=$backendIp" > .env
+#      - npm run serve
+#      - npx cypress run --headless
       - echo Build completed on `date`
 artifacts:
     files:
