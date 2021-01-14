@@ -22,7 +22,7 @@ phases:
       - backendIp=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' src_backend_1)
       - apt-get update
       - apt-get install curl -y
-      - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - curl -sL https://deb.nodesource.com/setup_12.x | -E bash -
       - apt-get install jq -y
       - apt-get install nodejs -y
       - cd vue
