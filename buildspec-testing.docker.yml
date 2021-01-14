@@ -23,8 +23,9 @@ phases:
       - docker exec src_vue_1 apt-get update
       - docker exec src_vue_1 apt-get install curl -y
       - curl $backendIp
-      - docker exec src_vue_1 apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
-      - docker exec src_vue_1 npx cypress run --headless
+      - docker exec src_vue_1 curl $backendIp
+#      - docker exec src_vue_1 apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
+#      - docker exec src_vue_1 npx cypress run --headless
 #      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
 #      - apt-get install jq -y
 #      - apt-get install nodejs -y
