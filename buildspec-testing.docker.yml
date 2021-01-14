@@ -23,6 +23,7 @@ phases:
       - apt-get update
       - apt-get install curl -y
       - curl $backendIp
+      - echo $backendIp
 #      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
 #      - apt-get install jq -y
 #      - apt-get install nodejs -y
