@@ -18,6 +18,7 @@ phases:
       - docker-compose -f docker-compose.yml up --build -d
   post_build:
     commands:
+      - codebuild-breakpoint
       - docker exec src_backend_1 npm run test
       - backendIp=$(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' src_backend_1)
       - docker exec src_vue_1 apt-get update
@@ -25,7 +26,7 @@ phases:
       - curl $backendIp
       - docker exec src_vue_1 curl $backendIp
       - docker exec src_vue_1 apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
-      - codebuild-breakpoint
+#      - codebuild-breakpoint
 #      - docker exec src_vue_1 npx cypress run --headless
 #      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
 #      - apt-get install jq -y
