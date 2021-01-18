@@ -27,6 +27,22 @@ services:
         env_file:
             - .env.development.backend
             - .env.aws.backend
+    vue:
+        build:
+            context: ./vue
+            dockerfile: Dockerfile
+        image: morpher/zerowallet-frontend-vue
+        restart: always
+        volumes:
+            - ./vue:/usr/src/app
+            - /usr/src/app/node_modules
+        ports:
+            - "3001:3001"
+        environment: 
+            CHOKIDAR_USEPOLLING: 1
+        env_file:
+            - .env.test.vue
+
 volumes:
     postgres_data:
         driver: local
