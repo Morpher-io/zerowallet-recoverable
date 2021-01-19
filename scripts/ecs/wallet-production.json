@@ -38,43 +38,43 @@
             "secrets": [
                 {
                     "name": "DB_BACKEND_SALT",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_BACKEND_SALT::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_BACKEND_SALT::"
                 },
                 {
                     "name": "DB_HOST",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_DB_HOST::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_DB_HOST::"
                 },
                 {
                     "name": "DB_NAME",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_DB_DB::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_DB_DB::"
                 },
                 {
                     "name": "DB_PASSWORD",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_DB_PASSWORD::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_DB_PASSWORD::"
                 },
                 {
                     "name": "DB_USER",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_DB_USER::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_DB_USER::"
                 },
                 {
                     "name": "FACEBOOK_APP_ID",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_FACEBOOK_APP_ID::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_FACEBOOK_APP_ID::"
                 },
                 {
                     "name": "FACEBOOK_APP_SECRET",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_FACEBOOK_APP_SECRET::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_FACEBOOK_APP_SECRET::"
                 },
                 {
                     "name": "GOOGLE_APP_ID",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_GOOGLE_APP_ID::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_GOOGLE_APP_ID::"
                 },
                 {
                     "name": "GOOGLE_APP_SECRET",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_GOOGLE_APP_SECRET::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_GOOGLE_APP_SECRET::"
                 },
                 {
                     "name": "VK_APP_ID",
-                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-GRZlqk:WALLET_VK_APP_ID::"
+                    "valueFrom": "arn:aws:secretsmanager:eu-central-1:612970435624:secret:environment_production-EdRBtv:WALLET_VK_APP_ID::"
                 }
             ],
             "logConfiguration": {
