@@ -19,8 +19,8 @@ phases:
       - docker exec src_vue_1 apt-get install curl -y
       - docker exec src_vue_1 apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb -y
       - docker exec src_vue_1 cp cypress.test.json cypress.json
-#      - codebuild-breakpoint
-      - docker exec src_vue_1 npx cypress run --headless
+      - codebuild-breakpoint
+#      - docker exec src_vue_1 npx cypress run --headless
 
       - echo Build completed on `date`
 artifacts:
